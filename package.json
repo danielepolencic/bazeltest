@@ -1,0 +1,16 @@
+{
+  "name": "bazeltest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "bazel run universal_server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bazel/typescript": "^2.0.2",
+    "typescript": "^3.9.7"
+  }
+}
