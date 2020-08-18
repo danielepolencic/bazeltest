@@ -1,5 +1,6 @@
 load("@npm//@bazel/typescript:index.bzl", "ts_library")
 load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+load("@io_bazel_rules_docker//nodejs:image.bzl", "nodejs_image")
 
 exports_files([
     "tsconfig.json",
@@ -23,4 +24,18 @@ nodejs_binary(
         ":universal_server_lib",
     ],
     entry_point = ":index.ts",
+)
+
+filegroup(
+    name = "mainfile",
+    srcs = ["universal_server_lib"],
+    output_group = "es5_sources",
+)
+
+nodejs_image(
+    name = "server",
+    data = [
+        ":mainfile",
+    ],
+    entry_point = ":mainfile",
 )
