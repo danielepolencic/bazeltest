@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "bazel run universal_server"
+    "start": "bazel run universal_server",
+    "build:container": "bazel build server --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64"
   },
   "keywords": [],
   "author": "",
